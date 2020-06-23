@@ -1,16 +1,16 @@
-# passwordGenerator
+# passwordGenerator Application 
 
-A new Flutter project.
+This is a password generation mobile application build using Flutter. Here users can generate password according to the need.
 
-## Getting Started
+They can customize password length, adding symbols, numbers, uppercase and lowercase alphabets. 
 
-This project is a starting point for a Flutter application.
+The generated password values are random.
 
-A few resources to get you started if this is your first Flutter project:
+ScreenShots of the application:
+Screenshots| Screenshots
+-|-
+![](/images/1.png)   |  ![](/images/2.png)
+![](/images/4.png)    | ![](/images/3.png)
+![](/images/5.png)    | ![](/images/6.png)
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+![](/images/7.png)

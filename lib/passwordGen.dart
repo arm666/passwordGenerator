@@ -165,23 +165,37 @@ class _PasswordGeneratorState extends State<PasswprdGenerator> {
     calculatePassword();
   }
 
+  FocusNode focus = FocusNode();
   @override
   Widget build(BuildContext context) {
     return Container(
+      decoration: BoxDecoration(
+          gradient: LinearGradient(
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+              colors: [
+            Colors.orange.withOpacity(.5),
+            Colors.deepOrange.withAlpha(200)
+          ])),
       child: Column(children: <Widget>[
         SizedBox(height: 50),
         Container(
           margin: EdgeInsets.symmetric(horizontal: 20),
           child: TextField(
+            focusNode: focus,
+            decoration: InputDecoration(
+                enabledBorder: InputBorder.none,
+                focusedBorder: InputBorder.none,
+                hintText: "password",
+                filled: true,
+                fillColor: Colors.white.withOpacity(.5)),
             controller: _textController,
             textAlign: TextAlign.center,
             style: TextStyle(
-                fontSize: 30, fontWeight: FontWeight.bold, letterSpacing: 10),
-            onChanged: (str) {
-              setState(() {
-                _textController.text = str;
-              });
-            },
+                color: Colors.red,
+                fontSize: 30,
+                fontWeight: FontWeight.bold,
+                letterSpacing: 10),
           ),
         ),
         Expanded(
@@ -194,8 +208,8 @@ class _PasswordGeneratorState extends State<PasswprdGenerator> {
             flex: 1,
             child: Center(
               child: RaisedButton(
-                elevation: 10,
-                color: Colors.green,
+                elevation: 0,
+                color: Colors.black.withOpacity(.3),
                 child: Container(
                   padding: EdgeInsets.symmetric(vertical: 10),
                   width: MediaQuery.of(context).size.width - 200,
@@ -206,6 +220,7 @@ class _PasswordGeneratorState extends State<PasswprdGenerator> {
                   ),
                 ),
                 onPressed: () {
+                  focus.unfocus();
                   calculatePassword();
                 },
               ),
@@ -307,62 +322,94 @@ class _PasswordGeneratorState extends State<PasswprdGenerator> {
   }
 
   Widget symbols() {
-    return Row(children: [
-      Checkbox(
-        value: _bSymbol,
-        onChanged: (value) {
-          setState(() {
-            _bSymbol = value;
-            errorDisplay();
-          });
-        },
-      ),
-      Text("Include Symbols, ( e.g. @#\$% )")
-    ]);
+    return GestureDetector(
+      onTap: () {
+        setState(() {
+          _bSymbol = !_bSymbol;
+          errorDisplay();
+        });
+      },
+      child: Row(children: [
+        Checkbox(
+          value: _bSymbol,
+          onChanged: (value) {
+            setState(() {
+              _bSymbol = value;
+              errorDisplay();
+            });
+          },
+        ),
+        Text("Include Symbols, ( e.g. @#\$% )")
+      ]),
+    );
   }
 
   Widget numbers() {
-    return Row(children: [
-      Checkbox(
-        value: _bNumber,
-        onChanged: (value) {
-          setState(() {
-            _bNumber = value;
-            errorDisplay();
-          });
-        },
-      ),
-      Text("Include Numbers, ( e.g. 123456 ) ")
-    ]);
+    return GestureDetector(
+      onTap: () {
+        setState(() {
+          _bNumber = !_bNumber;
+          errorDisplay();
+        });
+      },
+      child: Row(children: [
+        Checkbox(
+          value: _bNumber,
+          onChanged: (value) {
+            setState(() {
+              _bNumber = value;
+              errorDisplay();
+            });
+          },
+        ),
+        Text("Include Numbers, ( e.g. 123456 ) ")
+      ]),
+    );
   }
 
   Widget lowerCase() {
-    return Row(children: [
-      Checkbox(
-        value: _blowerCase,
-        onChanged: (value) {
-          setState(() {
-            _blowerCase = value;
-            errorDisplay();
-          });
-        },
-      ),
-      Text("Include Lowercase Characters, ( e.g. abcdefgh ) ")
-    ]);
+    return GestureDetector(
+      onTap: () {
+        setState(() {
+          _blowerCase = !_blowerCase;
+          errorDisplay();
+        });
+      },
+      child: Row(children: [
+        Checkbox(
+          value: _blowerCase,
+          onChanged: (value) {
+            setState(() {
+              _blowerCase = value;
+              errorDisplay();
+            });
+          },
+        ),
+        Text("Include Lowercase Characters, ( e.g. abcdefgh ) ")
+      ]),
+    );
   }
 
   Widget upperCase() {
-    return Row(children: [
-      Checkbox(
-        value: _bupperCase,
-        onChanged: (value) {
+    return GestureDetector(
+      onTap: (){
           setState(() {
-            _bupperCase = value;
-            errorDisplay();
-          });
-        },
-      ),
-      Text("Include UpperCase Characters, ( e.g. ABCDEFGH ) ")
-    ]);
+              _bupperCase = !_bupperCase;
+              errorDisplay();
+            });
+      },
+      child: Row(children: [
+        Checkbox(
+          value: _bupperCase,
+          onChanged: (value) {
+            setState(() {
+              _bupperCase = value;
+              errorDisplay();
+            });
+          },
+        ),
+        Text("Include UpperCase Characters, ( e.g. ABCDEFGH ) ")
+      ]),
+    );
   }
 }
