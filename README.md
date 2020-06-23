@@ -1,8 +1,8 @@
 # passwordGenerator Application 
 
-This is a password generation mobile application build using Flutter. Here users can generate password according to the need.
+This is a password generator mobile application build using Flutter. Here users can generate passwords according to the need.
 
-They can customize password length, adding symbols, numbers, uppercase and lowercase alphabets. 
+They can customize password length, add and remove  symbols, numbers, uppercase and lowercase alphabets in the password. 
 
 The generated password values are random.
 
