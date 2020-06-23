@@ -4,7 +4,7 @@ This is a password generator mobile application build using Flutter. Here users 
 
 They can customize password length, add and remove  symbols, numbers, uppercase and lowercase alphabets in the password. 
 
-The generated password values are random.
+The generated password values are random. Further,they can edit the password.
 
 ScreenShots of the application:
 Screenshots| Screenshots
